@@ -1,1 +1,3 @@
-#Emotimash v2
+# Emotimash v2
+
+Built with gatsby and tailwind.

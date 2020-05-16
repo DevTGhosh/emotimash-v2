@@ -1,6 +1,6 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
 const resolveConfig = require("tailwindcss/resolveConfig");
 const tailwindConfig = require("./tailwind.config.js");
@@ -9,9 +9,9 @@ const fullConfig = resolveConfig(tailwindConfig);
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Tailwind`,
-    description: `Gatsby starter styled with Tailwind`,
-    author: `@taylorbryant`,
+    title: `Emotimash V2`,
+    description: `Combine 2 emojis to get a unique new emoji`,
+    author: `@djdgr8`,
   },
   plugins: [
     `gatsby-plugin-eslint`,
@@ -40,5 +40,14 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images/emoji/final`,
+      },
+    },
   ],
 };

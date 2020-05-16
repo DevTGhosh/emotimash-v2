@@ -3,7 +3,6 @@ import React from "react";
 import abductionIllustration from "../images/abduction-illustration.svg";
 
 function NotFoundPage() {
-  console.log("abductionIllustration: ", typeof abductionIllustration);
   return (
     <div className="w-screen h-screen grid items-center justify-center">
       <img

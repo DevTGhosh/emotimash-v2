@@ -6,7 +6,7 @@ import emotionNormalize from "emotion-normalize";
 import EmojiSelection from "../components/EmojiSelection";
 import AdditionComponent from "../components/AdditionComponent";
 import CombinationEmoji from "../components/CombinationEmoji";
-import { mq } from "../ui";
+import { mq } from "../utilities/ui";
 import backgroundImage from "../images/background-image.png";
 
 const HomeContainer = styled.div(
@@ -22,19 +22,18 @@ const HomeContainer = styled.div(
     alignItems: `center`,
     justifyContent: `flex-start`,
     height: `100%`,
-    [mq[0]]: {},
+    [mq[0]]: {
+      height: `100vh`,
+      justifyContent: `space-around`,
+    },
     [mq[2]]: {
       display: `grid`,
-      gridTemplateColumns: `45% 55%`,
+      gridTemplateColumns: `1fr 1fr`,
       gridTemplateRows: `50% 50%`,
-      gridGap: `5rem`,
-      height: `100vh`,
+      alignContent: `space-around`,
+      justifyItems: `center`,
     },
   }
-  // (mqf({
-  //   // allow small screens to scroll if not enough height rest should be contained in viewport
-  //   height: ["100%", "100vh"],
-  // })),
 );
 
 const index = () => {

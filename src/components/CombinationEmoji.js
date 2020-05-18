@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 // import { graphql, useStaticQuery } from "gatsby";
 // import Img from "gatsby-image";
-import { mq } from "../ui";
+import { mq } from "../utilities/ui";
 
 const CombinationContainer = styled.div({
   background: `red`,

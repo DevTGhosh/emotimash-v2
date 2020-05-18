@@ -19,7 +19,7 @@ const EmojiContainer = styled.div(
     },
   },
   mqf({
-    width: [`18.75rem`, `30rem`, `30rem`, `40rem`],
+    width: [`20rem`, `30rem`, `30rem`, `40rem`],
     height: [`18.75rem`, `25rem`, `30rem`, `40rem`],
   })
 );

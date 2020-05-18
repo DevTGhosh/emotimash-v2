@@ -2,12 +2,16 @@ import React from "react";
 import styled from "@emotion/styled";
 // import { graphql, useStaticQuery } from "gatsby";
 // import Img from "gatsby-image";
+import { mq } from "../ui";
 
 const CombinationContainer = styled.div({
   background: `red`,
   width: `75%`,
   height: `15.625rem`,
   margin: `2rem 0 1rem 0`,
+  [mq[2]]: {
+    gridColumnStart: `2`,
+  },
 });
 
 const CombinationEmoji = () => {

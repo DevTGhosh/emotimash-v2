@@ -7,6 +7,7 @@ import EmojiSelection from "../components/EmojiSelection";
 import AdditionComponent from "../components/AdditionComponent";
 import CombinationEmoji from "../components/CombinationEmoji";
 import { mq } from "../utilities/ui";
+import { StateProvider } from "../store";
 import backgroundImage from "../images/background-image.png";
 
 const HomeContainer = styled.div(
@@ -52,11 +53,13 @@ const index = () => {
           }
         `}
       />
-      <HomeContainer>
-        <EmojiSelection />
-        <AdditionComponent />
-        <CombinationEmoji />
-      </HomeContainer>
+      <StateProvider>
+        <HomeContainer>
+          <EmojiSelection />
+          <AdditionComponent />
+          <CombinationEmoji />
+        </HomeContainer>
+      </StateProvider>
     </>
   );
 };

@@ -47,18 +47,20 @@ const emojiDispatch = (dispatch, index, selectedEmojiState) => {
       valueExists = true;
     }
   }
-  if (len < 3 && !valueExists) {
+  if (len < 2 && !valueExists) {
+    console.log("len: ", len);
     if (len < 1) {
       dispatch({ type: "SELECT_EMOJI", emojiIndex: index });
     } else if (len < 2) {
       dispatch({ type: "SELECT_EMOJI", emojiIndex: index });
       //dispatch final emoji
-    } else {
-      //Removing the 2nd emoji in the state
-      dispatch({ type: "REMOVE_EMOJI", selectEmoji: 1 });
-      dispatch({ type: "SELECT_EMOJI", emojiIndex: index });
-      //dispatch Final emoji
     }
+  } else if (len === 2 && !valueExists) {
+    console.log("len: ", len);
+    //Removing the 2nd emoji in the state
+    dispatch({ type: "REMOVE_EMOJI", selectEmoji: 1 });
+    dispatch({ type: "SELECT_EMOJI", emojiIndex: index });
+    //dispatch Final emoji
   } else {
     return null;
   }
@@ -66,7 +68,7 @@ const emojiDispatch = (dispatch, index, selectedEmojiState) => {
 
 const EmojiSelection = () => {
   const globalState = useContext(store);
-  const selectedEmojiState = globalState.state[0].emoji;
+  const selectedEmojiState = globalState.state.emoji;
   const { dispatch } = globalState;
   return (
     <EmojiContainer>

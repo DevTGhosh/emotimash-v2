@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 // import { css } from "@emotion/core";
 import { store } from "../store";
 import { mq, mqf } from "../utilities/ui";
-import { startingEmoji } from "../utilities/images";
+import { startingEmoji, imgAltArr } from "../utilities/images";
 
 const EmojiContainer = styled.div(
   {
@@ -63,20 +63,7 @@ const emojiDispatch = (dispatch, index, selectedEmojiState) => {
     return null;
   }
 };
-const setAltImg = (index) => {
-  const imgAltArr = [
-    "Blush emoji",
-    "Grin emoji",
-    "Happy emoji",
-    "Heart Eyes emoji",
-    "Ninja emoji",
-    "Puke emoji",
-    "Sad  emoji",
-    "Sleep emoji",
-    "Tongue Out emoji",
-  ];
-  return imgAltArr[index];
-};
+
 const EmojiSelection = () => {
   const globalState = useContext(store);
   const selectedEmojiState = globalState.state[0].emoji;
@@ -91,7 +78,7 @@ const EmojiSelection = () => {
               emojiDispatch(dispatch, index, selectedEmojiState);
             }}
           >
-            <Img src={emoji} alt={setAltImg(index)} />
+            <Img src={emoji} alt={imgAltArr[index]} />
           </EmojiImageDiv>
         );
       })}

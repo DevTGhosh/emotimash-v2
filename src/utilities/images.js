@@ -19,3 +19,15 @@ export const startingEmoji = [
   sleep,
   tongueOut,
 ];
+
+export const imgAltArr = [
+  "Blush emoji",
+  "Grin emoji",
+  "Happy emoji",
+  "Heart Eyes emoji",
+  "Ninja emoji",
+  "Puke emoji",
+  "Sad  emoji",
+  "Sleep emoji",
+  "Tongue Out emoji",
+];

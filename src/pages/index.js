@@ -29,7 +29,7 @@ const HomeContainer = styled.div(
     },
     [mq[2]]: {
       display: `grid`,
-      gridTemplateColumns: `1fr 1fr`,
+      gridTemplateColumns: `0.25fr 1fr 1fr 0.25fr`,
       gridTemplateRows: `50% 50%`,
       alignContent: `space-around`,
       justifyItems: `center`,

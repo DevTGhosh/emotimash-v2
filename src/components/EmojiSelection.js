@@ -15,8 +15,9 @@ const EmojiContainer = styled.div(
     alignContent: `space-around`,
     justifyItems: `center`,
     [mq[2]]: {
-      gridRowStart: 1,
-      gridRowEnd: 3,
+      gridRowStart: `1`,
+      gridRowEnd: `3`,
+      gridColumn: `2/2`,
     },
   },
   mqf({

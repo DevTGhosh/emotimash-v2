@@ -10,7 +10,7 @@ const CombinationContainer = styled.div({
   height: `15.625rem`,
   margin: `2rem 0 1rem 0`,
   [mq[2]]: {
-    gridColumnStart: `2`,
+    gridColumn: `3/3`,
   },
 });
 

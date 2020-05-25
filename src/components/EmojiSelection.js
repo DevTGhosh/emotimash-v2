@@ -37,7 +37,6 @@ const EmojiImageDiv = styled.div(
     height: [`75px`, `90px`, `110px`],
   })
 );
-const Img = styled.img({});
 const emojiDispatch = (dispatch, index, selectedEmojiState) => {
   const len = selectedEmojiState.length;
   let valueExists = false;
@@ -49,19 +48,15 @@ const emojiDispatch = (dispatch, index, selectedEmojiState) => {
     }
   }
   if (len < 2 && !valueExists) {
-    console.log("len: ", len);
     if (len < 1) {
       dispatch({ type: "SELECT_EMOJI", emojiIndex: index });
     } else if (len < 2) {
       dispatch({ type: "SELECT_EMOJI", emojiIndex: index });
-      //dispatch final emoji
     }
   } else if (len === 2 && !valueExists) {
-    console.log("len: ", len);
-    //Removing the 2nd emoji in the state
+    //Removing the 2nd emoji in the state & adding new emoji instead
     dispatch({ type: "REMOVE_EMOJI", selectEmoji: 1 });
     dispatch({ type: "SELECT_EMOJI", emojiIndex: index });
-    //dispatch Final emoji
   } else {
     return null;
   }
@@ -81,7 +76,7 @@ const EmojiSelection = () => {
               emojiDispatch(dispatch, index, selectedEmojiState);
             }}
           >
-            <Img src={emoji} alt={imgAltArr[index]} />
+            <img src={emoji} alt={imgAltArr[index]} />
           </EmojiImageDiv>
         );
       })}

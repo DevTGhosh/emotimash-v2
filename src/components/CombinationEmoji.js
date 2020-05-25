@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "@emotion/styled";
-// import { graphql, useStaticQuery } from "gatsby";
-// import Img from "gatsby-image";
+import Img from "gatsby-image";
+import { store } from "../store";
 import { mq } from "../utilities/ui";
+import emojiList from "../utilities/finalImage";
 
 const CombinationContainer = styled.div({
   background: `red`,
@@ -14,34 +15,36 @@ const CombinationContainer = styled.div({
   },
 });
 
+const getFinalImage = (selectedEmojiState, finalEmojiArray) => {
+  if (selectedEmojiState.length === 2) {
+    // sets emoji index in ascending order
+    if (selectedEmojiState[0] > selectedEmojiState[1]) {
+      let temp = selectedEmojiState[0];
+      selectedEmojiState[0] = selectedEmojiState[1];
+      selectedEmojiState[1] = temp;
+    }
+    let i = selectedEmojiState[0];
+    let j = selectedEmojiState[1];
+    return finalEmojiArray[i][j];
+  } else {
+    return false;
+  }
+};
+
 const CombinationEmoji = () => {
-  // const data = useStaticQuery(graphql`
-  //   query Images {
-  //     allFile(filter: { relativeDirectory: { eq: "" } }) {
-  //       nodes {
-  //         id
-  //         childImageSharp {
-  //           fixed(height: 200) {
-  //             ...GatsbyImageSharpFixed
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // `);
+  const globalState = useContext(store);
+  // create a new array with state value
+  const selectedEmojiState = [...globalState.state.emoji];
+  // gets the return emojiArray
+  const finalEmojiArray = emojiList();
+  //return emoji name & src or false if doesn't exist
+  const image = getFinalImage(selectedEmojiState, finalEmojiArray);
+  //
   return (
     <CombinationContainer>
-      <h1>Combination Component</h1>
-      {/* {data.allFile.nodes.map((image) => {
-        console.log("image: ", image);
-        return (
-          <Img
-            key={image.id}
-            fixed={image.childImageSharp.fixed}
-            alt="Final Emoji"
-          />
-        );
-      })} */}
+      {image ? (
+        <Img fixed={image.childImageSharp.fixed} alt={image.name} />
+      ) : null}
     </CombinationContainer>
   );
 };

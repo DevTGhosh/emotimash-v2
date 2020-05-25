@@ -3,7 +3,7 @@
 /* eslint-disable react/prop-types */
 import React, { createContext, useReducer } from "react";
 
-const initialState = { emoji: [], finalSelection: "hbkhb" };
+const initialState = { emoji: [], finalSelection: [] };
 const store = createContext(initialState);
 const { Provider } = store;
 

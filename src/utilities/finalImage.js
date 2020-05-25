@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import { startingEmoji } from "./images";
 
 const finalImage = () => {
+  //fetches the image data in ascending order according to name
   const data = useStaticQuery(graphql`
     query Images {
       allFile(
@@ -26,8 +27,11 @@ const finalImage = () => {
   let k = 1;
   let finalImageArray = data.allFile.nodes;
   const emojiArray = [];
-  for (i = 0; i < finalImageArray.length - 1; i++) {
+  //Puts images in a new array sorted according to index
+  // So Final image 1-3 is emojiArray[0][2]
+  for (i = 0; i < finalImageArray.length; i++) {
     if (k < startingEmoji.length) {
+      //if new emoji index set it to an empty oject you mutate this object latee to add image data
       if (k === 1) {
         emojiArray[j] = {};
       }

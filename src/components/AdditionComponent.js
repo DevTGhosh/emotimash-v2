@@ -42,6 +42,7 @@ const SelectedImageDiv = styled.div(
 const EmojiImg = styled.img(
   {
     filter: `drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.1)) drop-shadow( 0px 2px 2px rgba(0, 0, 0, 0.3))`,
+    cursor: `pointer`,
   },
   mqf({
     width: [`90px`, `115px`],

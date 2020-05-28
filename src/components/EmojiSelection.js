@@ -31,6 +31,7 @@ const EmojiImageDiv = styled.div(
     width: `75px`,
     height: `75px`,
     background: `white`,
+    cursor: `pointer`,
   },
   mqf({
     width: [`75px`, `90px`, `110px`],

@@ -21,8 +21,9 @@ const HomeContainer = styled.div(
     flex: `0 1 auto`,
     flexDirection: `column`,
     alignItems: `center`,
-    justifyContent: `flex-start`,
+    justifyContent: `space-around`,
     height: `100%`,
+    minHeight: `100vh`,
     [mq[0]]: {
       height: `100vh`,
       justifyContent: `space-around`,

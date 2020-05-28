@@ -15,7 +15,7 @@ const finalImage = () => {
           name
           childImageSharp {
             fixed(height: 200) {
-              ...GatsbyImageSharpFixed
+              ...GatsbyImageSharpFixed_tracedSVG
             }
           }
         }

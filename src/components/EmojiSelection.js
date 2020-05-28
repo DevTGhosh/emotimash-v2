@@ -59,7 +59,9 @@ const emojiDispatch = (dispatch, index, selectedEmojiState) => {
     } else {
       //Removing the 2nd emoji in the state & adding new emoji instead
       dispatch({ type: "REMOVE_EMOJI", selectEmoji: 1 });
-      dispatch({ type: "SELECT_EMOJI", emojiIndex: index });
+      setTimeout(() => {
+        dispatch({ type: "SELECT_EMOJI", emojiIndex: index });
+      }, 200);
     }
   } else {
     return null;

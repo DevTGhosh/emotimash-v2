@@ -68,8 +68,7 @@ const AdditionComponent = () => {
   const globalState = useContext(store);
   const { dispatch } = globalState;
   const emojiIndex = [...globalState.state.emoji];
-  console.log("emojiIndex: ", emojiIndex);
-  console.log("arrayHasIndex(emojiIndex, 0): ", arrayHasIndex(emojiIndex, 0));
+
   return (
     <AdditionContainer>
       <SelectedImageDiv>

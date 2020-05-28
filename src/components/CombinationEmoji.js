@@ -44,7 +44,7 @@ const getFinalImage = (selectedEmojiState, finalEmojiArray) => {
 const getImageName = (filename) => {
   let name = "";
   // makes sure img alt is not shown in the small time it takes to load the image
-  setTimeout(() => {}, 500);
+  setTimeout(() => {}, 1000);
   // removes the first 4 characters used to sort the files
   name = filename.slice(4);
 

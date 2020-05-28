@@ -10,12 +10,23 @@ const { Provider } = store;
 const StateProvider = ({ children }) => {
   const [state, dispatch] = useReducer((state, action) => {
     let newEmoji = [...state.emoji];
+
     switch (action.type) {
       case "SELECT_EMOJI":
-        newEmoji.push(action.emojiIndex);
+        // if 1st emoji isnt present replace null with selected value
+        if (newEmoji[0] === null) {
+          newEmoji.splice(0, 1, action.emojiIndex);
+        } else {
+          newEmoji.push(action.emojiIndex);
+        }
         return { ...state, emoji: newEmoji };
       case "REMOVE_EMOJI":
         newEmoji.splice(action.selectEmoji, 1);
+        return { ...state, emoji: newEmoji };
+      case "REVERSE_EMOJI":
+        newEmoji.push(null);
+        newEmoji.reverse();
+
         return { ...state, emoji: newEmoji };
       default:
         throw new Error();

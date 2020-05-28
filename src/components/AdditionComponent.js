@@ -36,7 +36,6 @@ const SelectedImageDiv = styled.div(
     alignContent: `start`,
   },
   mqf({
-    // margin: [`0 0`, `0 0`, `0 0`, `0 0.5rem`],
     width: [`100px`, `120px`],
   })
 );
@@ -49,9 +48,18 @@ const EmojiImg = styled.img(
   })
 );
 
+const removeEmoji = (index, dispatch) => {
+  dispatch({ type: "REMOVE_EMOJI", selectEmoji: index });
+  if (index === 0) {
+    // if removing first emoji we insert null and then reverse the array to get [null,index]
+    dispatch({ type: "REVERSE_EMOJI" });
+  }
+};
+
 const AdditionComponent = () => {
   const globalState = useContext(store);
-  const emojiIndex = globalState.state.emoji;
+  const { dispatch } = globalState;
+  const emojiIndex = [...globalState.state.emoji];
 
   return (
     <AdditionContainer>
@@ -59,6 +67,7 @@ const AdditionComponent = () => {
         <EmojiImg
           src={startingEmoji[emojiIndex[0]]}
           alt={imgAltArr[emojiIndex[0]]}
+          onClick={() => removeEmoji(0, dispatch)}
         />
       </SelectedImageDiv>
       <AdditionImageDiv>
@@ -72,6 +81,7 @@ const AdditionComponent = () => {
         <EmojiImg
           src={startingEmoji[emojiIndex[1]]}
           alt={imgAltArr[emojiIndex[1]]}
+          onClick={() => removeEmoji(1, dispatch)}
         />
       </SelectedImageDiv>
     </AdditionContainer>

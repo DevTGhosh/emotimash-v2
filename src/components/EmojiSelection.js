@@ -54,9 +54,13 @@ const emojiDispatch = (dispatch, index, selectedEmojiState) => {
       dispatch({ type: "SELECT_EMOJI", emojiIndex: index });
     }
   } else if (len === 2 && !valueExists) {
-    //Removing the 2nd emoji in the state & adding new emoji instead
-    dispatch({ type: "REMOVE_EMOJI", selectEmoji: 1 });
-    dispatch({ type: "SELECT_EMOJI", emojiIndex: index });
+    if (selectedEmojiState.includes(null)) {
+      dispatch({ type: "SELECT_EMOJI", emojiIndex: index });
+    } else {
+      //Removing the 2nd emoji in the state & adding new emoji instead
+      dispatch({ type: "REMOVE_EMOJI", selectEmoji: 1 });
+      dispatch({ type: "SELECT_EMOJI", emojiIndex: index });
+    }
   } else {
     return null;
   }

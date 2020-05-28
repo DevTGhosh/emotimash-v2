@@ -16,7 +16,7 @@ const CombinationContainer = styled.div({
 });
 
 const getFinalImage = (selectedEmojiState, finalEmojiArray) => {
-  if (selectedEmojiState.length === 2) {
+  if (selectedEmojiState.length === 2 && !selectedEmojiState.includes(null)) {
     // sets emoji index in ascending order
     if (selectedEmojiState[0] > selectedEmojiState[1]) {
       let temp = selectedEmojiState[0];
@@ -39,7 +39,7 @@ const CombinationEmoji = () => {
   const finalEmojiArray = emojiList();
   //return emoji name & src or false if doesn't exist
   const image = getFinalImage(selectedEmojiState, finalEmojiArray);
-  //
+  //, useState, useEffect
   return (
     <CombinationContainer>
       {image ? (

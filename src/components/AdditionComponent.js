@@ -56,20 +56,32 @@ const removeEmoji = (index, dispatch) => {
     dispatch({ type: "REVERSE_EMOJI" });
   }
 };
+const arrayHasIndex = (array, index) => {
+  //return false if null or empty; is used to return empty div and remove image tag from dom; bug in safari
+  return (
+    // eslint-disable-next-line no-prototype-builtins
+    Array.isArray(array) && array.hasOwnProperty(index) && array[index] !== null
+  );
+};
 
 const AdditionComponent = () => {
   const globalState = useContext(store);
   const { dispatch } = globalState;
   const emojiIndex = [...globalState.state.emoji];
-
+  console.log("emojiIndex: ", emojiIndex);
+  console.log("arrayHasIndex(emojiIndex, 0): ", arrayHasIndex(emojiIndex, 0));
   return (
     <AdditionContainer>
       <SelectedImageDiv>
-        <EmojiImg
-          src={startingEmoji[emojiIndex[0]]}
-          alt={imgAltArr[emojiIndex[0]]}
-          onClick={() => removeEmoji(0, dispatch)}
-        />
+        {arrayHasIndex(emojiIndex, 0) ? (
+          <EmojiImg
+            src={startingEmoji[emojiIndex[0]]}
+            alt={imgAltArr[emojiIndex[0]]}
+            onClick={() => removeEmoji(0, dispatch)}
+          />
+        ) : (
+          <div></div>
+        )}
       </SelectedImageDiv>
       <AdditionImageDiv>
         <img
@@ -79,11 +91,15 @@ const AdditionComponent = () => {
         />
       </AdditionImageDiv>
       <SelectedImageDiv>
-        <EmojiImg
-          src={startingEmoji[emojiIndex[1]]}
-          alt={imgAltArr[emojiIndex[1]]}
-          onClick={() => removeEmoji(1, dispatch)}
-        />
+        {arrayHasIndex(emojiIndex, 1) ? (
+          <EmojiImg
+            src={startingEmoji[emojiIndex[1]]}
+            alt={imgAltArr[emojiIndex[1]]}
+            onClick={() => removeEmoji(1, dispatch)}
+          />
+        ) : (
+          <div></div>
+        )}
       </SelectedImageDiv>
     </AdditionContainer>
   );

@@ -1,3 +1,7 @@
 # Emotimash v2
 
-Built with gatsby and tailwind.
+Mix and match different emojis.
+
+emotimash.netlify.app/ 
+
+Built with gatsby and emotion.
